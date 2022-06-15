@@ -11,10 +11,7 @@ public class Main {
             try {
                 int factor = Integer.parseInt(numero);
                 if (factor > 0) {
-                    int factorial = 1;
-                    for (int i=2; i<=factor; i++) {
-                        factorial = factorial*i;
-                    }
+                    int factorial = calcularFactorial(factor);
                     System.out.println("El factorial de " + factor + " es " + factorial);
                     error = false;
                 } else {
@@ -26,5 +23,13 @@ public class Main {
                 error=true;
             }
         } while(error);
+    }
+
+    private static int calcularFactorial(int factor) {
+        int factorial = 1;
+        for (int i = 2; i<= factor; i++) {
+            factorial = factorial*i;
+        }
+        return factorial;
     }
 }
