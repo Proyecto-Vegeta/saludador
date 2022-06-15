@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class Main {
 
+    private static Calculador calc = new Factorizador();
+
     public static void main(String[] args) {
         boolean error = false;
         do {
@@ -11,8 +13,8 @@ public class Main {
             try {
                 int factor = Integer.parseInt(numero);
                 if (factor > 0) {
-                    int factorial = calcularFactorial(factor);
-                    System.out.println("El factorial de " + factor + " es " + factorial);
+                    int factorial = calc.calcular(factor);
+                    System.out.println("El " + calc.describir() + " de " + factor + " es " + factorial);
                     error = false;
                 } else {
                     System.out.println("ERROR: Debe ingresar un numero mayor a 0.");
@@ -23,13 +25,5 @@ public class Main {
                 error=true;
             }
         } while(error);
-    }
-
-    private static int calcularFactorial(int factor) {
-        int factorial = 1;
-        for (int i = 2; i<= factor; i++) {
-            factorial = factorial*i;
-        }
-        return factorial;
     }
 }
